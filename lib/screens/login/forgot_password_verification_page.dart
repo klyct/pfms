@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
-import 'package:pfms/screens/home/home_screen.dart';
+import 'package:profinmovtser/screens/home/home_screen.dart';
 import '../../components/theme_helper.dart';
 import '../../widgets/header_widget.dart';
 

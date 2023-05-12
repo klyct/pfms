@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:pfms/components/theme_helper.dart';
-import 'package:pfms/firebase/email_auth.dart';
-import 'package:pfms/screens/home/home_screen.dart';
+import 'package:profinmovtser/components/theme_helper.dart';
+import 'package:profinmovtser/firebase/email_auth.dart';
+import 'package:profinmovtser/screens/home/home_screen.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 import '../../widgets/header_widget.dart';
 import 'package:flutter/services.dart';
@@ -10,8 +10,6 @@ import 'package:image_picker/image_picker.dart';
 import 'select_photo_options_screen.dart';
 import '../../firebase/facebook_auth.dart';
 import '../../firebase/google_auth.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:pfms/widgets/awesomeDialog_widget.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -27,7 +25,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
   bool checkedValue = false;
   bool checkboxValue = false;
   File? _image;
-  Awesome awesome = Awesome();
   EmailAuth? auth = EmailAuth();
   GoogleAuth googleAuth = GoogleAuth();
   FaceAuth faceAuth = FaceAuth();
@@ -308,51 +305,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           "Or create account using social media",
                           style: TextStyle(color: Colors.grey),
                         ),
-                        SizedBox(height: 25.0),
-                        Container(
-                          child: SocialLoginButton(
-                            buttonType: SocialLoginButtonType.google,
-                            text: 'Continue with Google',
-                            onPressed: () {
-                              googleAuth.registerWithGoogle().then((value) {
-                                if (value == 1) {
-                                  awesome
-                                      .buildDialog(
-                                          context,
-                                          DialogType.SUCCES,
-                                          'Registro exitoso',
-                                          'Su cuenta se ha registrado por favor inicia sesion',
-                                          '/profile',
-                                          AnimType.SCALE,
-                                          false)
-                                      .show();
-                                } else if (value == 2) {
-                                  awesome
-                                      .buildDialog(
-                                          context,
-                                          DialogType.WARNING,
-                                          'La cuenta ya está registrada',
-                                          'Ya existe una cuenta registrada con este correo electronico, por favor inicie sesion',
-                                          '/login',
-                                          AnimType.BOTTOMSLIDE,
-                                          false)
-                                      .show();
-                                } else {
-                                  awesome
-                                      .buildDialog(
-                                          context,
-                                          DialogType.ERROR,
-                                          'Ocurrio un error',
-                                          'Ocurrió un error al intentar realizar el registro',
-                                          '/register',
-                                          AnimType.BOTTOMSLIDE,
-                                          false)
-                                      .show();
-                                }
-                              });
-                            },
-                          ),
-                        )
                       ],
                     ),
                   ),

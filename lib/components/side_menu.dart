@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:pfms/models/rive_asset.dart';
-import 'package:pfms/widgets/rive_utils.dart';
+import 'package:profinmovtser/models/rive_asset.dart';
+import 'package:profinmovtser/widgets/rive_utils.dart';
 
 import 'info_card.dart';
 import 'side_menu_tile.dart';

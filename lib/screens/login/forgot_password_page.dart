@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pfms/components/theme_helper.dart';
-import 'package:pfms/screens/login/LoginPageMobile.dart';
-import 'package:pfms/widgets/header_widget.dart';
+import 'package:profinmovtser/components/theme_helper.dart';
+import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
+import 'package:profinmovtser/widgets/header_widget.dart';
 import 'forgot_password_verification_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:pfms/screens/login/LoginPageMobile.dart';
+import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
 import 'package:rive/rive.dart';
 
 import 'components/animated_btn.dart';

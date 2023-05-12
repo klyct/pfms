@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:pfms/models/usuarios.dart';
+import 'package:profinmovtser/models/usuarios.dart';
 
 class FaceAuth {
   final FacebookAuth facebookAuth = FacebookAuth.instance;

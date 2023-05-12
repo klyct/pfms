@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "1010300553543",
-    "project_id": "pfms-99ebb",
-    "storage_bucket": "pfms-99ebb.appspot.com"
+    "project_id": "profinmovtser-99ebb",
+    "storage_bucket": "profinmovtser-99ebb.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:1010300553543:android:28dcf1b485fe912a0ea462",
         "android_client_info": {
-          "package_name": "com.example.pfms"
+          "package_name": "com.example.profinmovtser"
         }
       },
       "oauth_client": [

@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:pfms/entry_point.dart';
-import 'package:pfms/components/side_menu.dart';
-import 'package:pfms/routes.dart';
-import 'package:pfms/screens/login/LoginPageMobile.dart';
-import 'package:pfms/screens/onboding/onboding_screen.dart';
-import 'package:pfms/screens/splash_screen.dart';
+import 'package:profinmovtser/entry_point.dart';
+import 'package:profinmovtser/components/side_menu.dart';
+import 'package:profinmovtser/routes.dart';
+import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
+import 'package:profinmovtser/screens/onboding/onboding_screen.dart';
+import 'package:profinmovtser/screens/splash_screen.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 Future<void> main() async {

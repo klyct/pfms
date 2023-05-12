@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
-import 'package:pfms/entry_point.dart';
-import 'package:pfms/widgets/rive_utils.dart';
+import 'package:profinmovtser/entry_point.dart';
+import 'package:profinmovtser/widgets/rive_utils.dart';
 
 class SignInForm extends StatefulWidget {
   const SignInForm({

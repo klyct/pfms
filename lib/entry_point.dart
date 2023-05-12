@@ -1,10 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:pfms/components/side_menu.dart';
-import 'package:pfms/constants.dart';
-import 'package:pfms/screens/home/home_screen.dart';
-import 'package:pfms/widgets/rive_utils.dart';
+import 'package:profinmovtser/components/side_menu.dart';
+import 'package:profinmovtser/constants.dart';
+import 'package:profinmovtser/screens/home/home_screen.dart';
+import 'package:profinmovtser/widgets/rive_utils.dart';
 import 'components/animated_bar.dart';
 import 'models/menu_btn.dart';
 import 'models/rive_asset.dart';

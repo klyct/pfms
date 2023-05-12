@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:pfms/models/rive_asset.dart';
+import 'package:profinmovtser/models/rive_asset.dart';
 
 class SideMenuTile extends StatelessWidget {
   const SideMenuTile({

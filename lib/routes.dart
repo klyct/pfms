@@ -1,14 +1,14 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:pfms/entry_point.dart';
-import 'package:pfms/screens/home/home_screen.dart';
-import 'package:pfms/screens/login/LoginPageMobile.dart';
-import 'package:pfms/screens/login/forgot_password_page.dart';
-import 'package:pfms/screens/login/forgot_password_verification_page.dart';
-import 'package:pfms/screens/login/registration_page.dart';
-import 'package:pfms/screens/onboding/onboding_screen.dart';
-import 'package:pfms/screens/splash_screen.dart';
+import 'package:profinmovtser/entry_point.dart';
+import 'package:profinmovtser/screens/home/home_screen.dart';
+import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
+import 'package:profinmovtser/screens/login/forgot_password_page.dart';
+import 'package:profinmovtser/screens/login/forgot_password_verification_page.dart';
+import 'package:profinmovtser/screens/login/registration_page.dart';
+import 'package:profinmovtser/screens/onboding/onboding_screen.dart';
+import 'package:profinmovtser/screens/splash_screen.dart';
 
 const String Route_login = '/login';
 const String Route_profile = '/profile';

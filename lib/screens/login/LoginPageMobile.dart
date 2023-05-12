@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pfms/components/theme_helper.dart';
+import 'package:profinmovtser/components/theme_helper.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 import '../../firebase/email_auth.dart';
 import '../../firebase/google_auth.dart';

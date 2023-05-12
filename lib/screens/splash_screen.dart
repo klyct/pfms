@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:pfms/screens/onboding/onboding_screen.dart';
+import 'package:profinmovtser/screens/onboding/onboding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);
