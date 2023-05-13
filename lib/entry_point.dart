@@ -1,20 +1,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:profinmovtser/screens/profile/profile_view.dart';
 import 'package:rive/rive.dart';
 import 'package:profinmovtser/components/side_menu.dart';
-import 'package:profinmovtser/constants.dart';
+import 'package:profinmovtser/utils/constants.dart';
 import 'package:profinmovtser/screens/home/home_screen.dart';
 import 'package:profinmovtser/widgets/rive_utils.dart';
 import 'components/animated_bar.dart';
 import 'models/menu_btn.dart';
 import 'models/rive_asset.dart';
 
-// We are done with our 5th and last episode
-// Thank you so much for watching entire serise
-// Bye
-
 class EntryPoint extends StatefulWidget {
-  const EntryPoint({super.key});
+  const EntryPoint({Key? key}) : super(key: key);
 
   @override
   State<EntryPoint> createState() => _EntryPointState();
@@ -27,11 +24,17 @@ class _EntryPointState extends State<EntryPoint>
   late AnimationController _animationController;
   late Animation<double> animation;
   late Animation<double> scalAnimation;
-
-  // Let's chnage the name
   late SMIBool isSideBarClosed;
 
   bool isSideMenuClosed = true;
+  int selectedIndex = 0;
+  List<Widget> pages = [
+    HomeScreen(),
+    Container(),
+    Container(),
+    Container(),
+    ProfileView(),
+  ];
 
   @override
   void initState() {
@@ -66,10 +69,7 @@ class _EntryPointState extends State<EntryPoint>
       resizeToAvoidBottomInset: false,
       extendBody: true,
       body: Stack(
-        // It's time to add the SideMenu
         children: [
-          // It shows nothing
-          // because now it's under the HomeScreen
           AnimatedPositioned(
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
@@ -87,9 +87,9 @@ class _EntryPointState extends State<EntryPoint>
               offset: Offset(animation.value * 265, 0),
               child: Transform.scale(
                 scale: scalAnimation.value,
-                child: const ClipRRect(
+                child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(24)),
-                  child: HomeScreen(),
+                  child: pages[selectedIndex],
                 ),
               ),
             ),
@@ -146,6 +146,8 @@ class _EntryPointState extends State<EntryPoint>
                       if (bottomNavs[index] != selectedBottomNav) {
                         setState(() {
                           selectedBottomNav = bottomNavs[index];
+                          selectedIndex = index;
+                          print(index);
                         });
                       }
                       Future.delayed(const Duration(seconds: 1), () {
