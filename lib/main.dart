@@ -1,12 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:profinmovtser/entry_point.dart';
-import 'package:profinmovtser/components/side_menu.dart';
 import 'package:profinmovtser/routes.dart';
-import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
-import 'package:profinmovtser/screens/onboding/onboding_screen.dart';
 import 'package:profinmovtser/screens/splash_screen.dart';
 import 'package:theme_provider/theme_provider.dart';
+import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +51,7 @@ class MyApp extends StatelessWidget {
       ],
       child: ThemeConsumer(
         child: Builder(
-          builder: (themeContext) => MaterialApp(
+          builder: (themeContext) => GetMaterialApp(
             theme: ThemeProvider.themeOf(themeContext).data,
             title: 'Roast Your EX',
             debugShowCheckedModeBanner: false,
