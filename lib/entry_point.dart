@@ -11,7 +11,8 @@ import 'models/menu_btn.dart';
 import 'models/rive_asset.dart';
 
 class EntryPoint extends StatefulWidget {
-  const EntryPoint({Key? key}) : super(key: key);
+  final int number;
+  const EntryPoint({Key? key, required this.number}) : super(key: key);
 
   @override
   State<EntryPoint> createState() => _EntryPointState();
@@ -64,6 +65,7 @@ class _EntryPointState extends State<EntryPoint>
 
   @override
   Widget build(BuildContext context) {
+    //selectedIndex = widget.number;
     return Scaffold(
       backgroundColor: backgroundColor2,
       resizeToAvoidBottomInset: false,

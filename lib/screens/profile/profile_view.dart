@@ -23,12 +23,14 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        title: const Text("Profile",
-            style: TextStyle(fontSize: 18, color: Colors.black)),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        title: Text("Profile",
+            style: TextStyle(
+                fontSize: 18,
+                color: Theme.of(context).colorScheme.onBackground)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -48,27 +50,6 @@ class _ProfileViewState extends State<ProfileView> {
                 children: [
                   const SizedBox(height: 10),
                   const ProfileCard(),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    height: 30,
-                    child: ListView.separated(
-                        itemCount: PostType.values.length,
-                        separatorBuilder: (context, index) =>
-                            const SizedBox(width: 10),
-                        scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return PostTypeChips(
-                              isSelected:
-                                  selectedPostType == index ? true : false,
-                              onTap: () {
-                                setState(() {
-                                  selectedPostType = index;
-                                });
-                              },
-                              postType: PostType.values[index]);
-                        }),
-                  ),
                   const SizedBox(height: 20),
                   ListView.separated(
                       shrinkWrap: true,

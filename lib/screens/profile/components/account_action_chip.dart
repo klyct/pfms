@@ -11,8 +11,9 @@ class AccountActionChip extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: Colors.grey.withOpacity(0.1)),
-      child:  Text(actionText,
-          style:const TextStyle(color: Colors.blue, fontSize: 14)),
+      child: Text(actionText,
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.onBackground, fontSize: 14)),
     );
   }
 }

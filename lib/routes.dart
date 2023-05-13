@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:profinmovtser/entry_point.dart';
-import 'package:profinmovtser/screens/home/home_screen.dart';
 import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
 import 'package:profinmovtser/screens/login/forgot_password_page.dart';
 import 'package:profinmovtser/screens/login/forgot_password_verification_page.dart';
@@ -17,16 +16,20 @@ const String Route_forgotPass = '/forgotPass';
 const String Route_verificationPass = '/verificationPass';
 const String Route_SplasScreen = '/SplashScreen';
 const String Route_OnBoardScreen = '/onBoard';
-const String Route_Settings = '/Settings';
-const String Route_Add = '/Add';
-const String Route_Calendar = '/Calendar';
-const String Route_Api = '/Api';
-const String Route_Modify = '/modify';
+const String Home = 'Home';
+const String Profile = 'Profile';
+const String Search = 'Search';
+const String Notifications = 'Notifications';
+const String Favorites = 'Favorites';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
     '/login': (BuildContext context) => LoginPage(),
-    '/profile': (BuildContext context) => EntryPoint(),
+    'Home': (BuildContext context) => EntryPoint(number: 0),
+    'Search': (BuildContext context) => EntryPoint(number: 2),
+    'Notifications': (BuildContext context) => EntryPoint(number: 3),
+    'Profile': (BuildContext context) => EntryPoint(number: 4),
+    '/profile': (BuildContext context) => EntryPoint(number: 0),
     '/registration': (BuildContext context) => RegistrationPage(),
     '/forgotPass': (BuildContext context) => ForgotPasswordPage(),
     '/SplashScreen': (BuildContext context) => SplashScreen(),

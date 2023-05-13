@@ -22,10 +22,10 @@ class ProfileCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10)),
           child: Column(
             children: [
-              const Text(
+              Text(
                 "Anabel May",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),

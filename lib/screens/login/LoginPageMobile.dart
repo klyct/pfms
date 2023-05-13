@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:profinmovtser/components/theme_helper.dart';
+import 'package:profinmovtser/firebase/github_auth.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 import '../../firebase/email_auth.dart';
 import '../../firebase/google_auth.dart';
@@ -23,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   EmailAuth? auth = EmailAuth();
   GoogleAuth googleAuth = GoogleAuth();
   FaceAuth faceAuth = FaceAuth();
+  GitAuth githubAuth = GitAuth();
   TextEditingController mail = TextEditingController();
   TextEditingController password = TextEditingController();
 
@@ -272,6 +274,32 @@ class _LoginPageState extends State<LoginPage> {
                                                 'Verifica tus credenciales'),
                                           );
                                         }
+                                      });
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 15),
+                                Container(
+                                  child: SocialLoginButton(
+                                    borderRadius: 40,
+                                    buttonType: SocialLoginButtonType.github,
+                                    onPressed: () async {
+                                      isLoading = true;
+                                      githubAuth
+                                          .signInWithGitHub(context)
+                                          .then((value) {
+                                        if (value) {
+                                          Navigator.pushNamed(
+                                              context, '/profile');
+                                          isLoading = false;
+                                        } else {
+                                          isLoading = false;
+                                          SnackBar(
+                                            content: Text(
+                                                'Verifica tus credenciales'),
+                                          );
+                                        }
+                                        setState(() {});
                                       });
                                     },
                                   ),

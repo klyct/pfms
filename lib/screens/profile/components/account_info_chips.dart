@@ -11,10 +11,11 @@ class AccountInfoChips extends StatelessWidget {
           color: Colors.blue.withOpacity(0.1),
           borderRadius: BorderRadius.circular(25)),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child:  Center(
+      child: Center(
           child: Text(
         info,
-        style:const  TextStyle(color: Colors.blue,fontSize: 12),
+        style: TextStyle(
+            color: Theme.of(context).colorScheme.onBackground, fontSize: 12),
       )),
     );
   }

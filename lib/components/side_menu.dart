@@ -60,6 +60,8 @@ class _SideMenuState extends State<SideMenu> {
                     });
                     setState(() {
                       selectedMenu = menu;
+                      //Navigator.pushNamed(context, menu.title);
+                      print(menu.title);
                     });
                   },
                   isActive: selectedMenu == menu,

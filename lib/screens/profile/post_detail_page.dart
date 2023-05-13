@@ -15,17 +15,17 @@ class PostDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         leading: IconButton(
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back,
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.onBackground,
             )),
       ),
       body: ListView(
@@ -61,8 +61,10 @@ class PostDetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(25)),
-                child: const Text('Send a message',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: Text('Send a message',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 14)),
               ),
               Container(
                 padding:
@@ -70,8 +72,10 @@ class PostDetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(25)),
-                child: const Text('Details',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: Text('Details',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 14)),
               )
             ],
           ),
@@ -92,10 +96,10 @@ class PostDetailPage extends StatelessWidget {
                 children: [
                   Text(
                     post.userName,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
+                        color: Theme.of(context).colorScheme.onBackground),
                   ),
                   const SizedBox(height: 2),
                   Text(
@@ -105,44 +109,54 @@ class PostDetailPage extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Container(
-                height: 25,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.grey.withOpacity(0.1)),
-                child: Text(
-                  post.postType.name.capitalizeFirst.toString(),
-                  style: const TextStyle(fontSize: 14, color: Colors.blue),
-                ),
-              ),
               const SizedBox(width: 5),
               const Icon(Icons.more_vert)
             ],
           ),
           const SizedBox(height: 10),
-          Text(post.description),
+          Text(
+            post.description,
+            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+          ),
           const SizedBox(height: 10),
           Row(
             children: [
-              SvgPicture.asset(CustomAssets.kHeart),
+              SvgPicture.asset(
+                CustomAssets.kHeart,
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
               const SizedBox(width: 2),
-              Text('${post.likes.toString()}k'),
+              Text(
+                '${post.likes.toString()}k',
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.onBackground),
+              ),
               const SizedBox(width: 10),
-              SvgPicture.asset(CustomAssets.kChat, height: 25),
+              SvgPicture.asset(
+                CustomAssets.kChat,
+                height: 25,
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
               const SizedBox(width: 2),
-              Text('${post.comments.toString()}k'),
+              Text(
+                '${post.comments.toString()}k',
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.onBackground),
+              ),
               const Spacer(),
-              SvgPicture.asset(CustomAssets.kShare),
-              const SizedBox(width: 5),
-              SvgPicture.asset(CustomAssets.kSaved),
+              SvgPicture.asset(
+                CustomAssets.kShare,
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
             ],
           ),
           const SizedBox(height: 20),
-          const Text(
+          Text(
             "All Comments",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).colorScheme.onBackground),
           ),
           const SizedBox(height: 10),
           ListView.separated(
@@ -169,21 +183,41 @@ class PostDetailPage extends StatelessWidget {
                                     fit: BoxFit.cover)),
                           ),
                           const SizedBox(width: 10),
-                          const Text(
+                          Text(
                             "Steve John • ",
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
                           ),
-                          const Text("5m ago")
+                          Text(
+                            "5m ago",
+                            style: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                          )
                         ],
                       ),
                       const SizedBox(height: 10),
-                      Text(post.description),
+                      Text(
+                        post.description,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.onBackground),
+                      ),
                       const SizedBox(height: 10),
                       Row(
                         children: [
-                          SvgPicture.asset(CustomAssets.kHeart),
+                          SvgPicture.asset(
+                            CustomAssets.kHeart,
+                            color: Theme.of(context).colorScheme.onBackground,
+                          ),
                           const SizedBox(width: 2),
-                          Text('${post.likes.toString()}k'),
+                          Text(
+                            '${post.likes.toString()}k',
+                            style: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                          ),
                         ],
                       )
                     ],

@@ -57,7 +57,7 @@ class _SignInFormState extends State<SignInForm> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => EntryPoint(),
+                        builder: (context) => EntryPoint(number: 0),
                       ));
                 },
               );
