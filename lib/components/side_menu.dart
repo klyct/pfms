@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
@@ -19,6 +20,8 @@ class _SideMenuState extends State<SideMenu> {
   RiveAsset selectedMenu = sideMenus.first;
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       body: Container(
         width: 288,
@@ -28,9 +31,9 @@ class _SideMenuState extends State<SideMenu> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const InfoCard(
-                name: "Lorena Olalde",
-                profession: "Teacher",
+              InfoCard(
+                name: user!.displayName!,
+                mail: user.email!,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),

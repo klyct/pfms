@@ -18,14 +18,11 @@ class GitAuth {
     try {
       final result = await _githubSignIn.signIn(context);
 
-      if (result != null) {
-        final githubAuthCredential =
-            GithubAuthProvider.credential(result.token!);
-        final authResult =
-            await _firebaseAuth.signInWithCredential(githubAuthCredential);
-        if (authResult.user != null) {
-          return true;
-        }
+      final githubAuthCredential = GithubAuthProvider.credential(result.token!);
+      final authResult =
+          await _firebaseAuth.signInWithCredential(githubAuthCredential);
+      if (authResult.user != null) {
+        return true;
       }
       return false;
     } on PlatformException catch (e) {
@@ -58,19 +55,16 @@ class GitAuth {
   Future<bool> signUpWithGitHub(BuildContext context) async {
     try {
       final result = await _githubSignIn.signIn(context);
-      if (result != null) {
-        final githubAuthCredential =
-            GithubAuthProvider.credential(result.token!);
-        final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
-          email: '${result.token}@github.com',
-          password: '${result.token}',
-        );
-        if (authResult.user != null) {
-          await authResult.user!.updateDisplayName(result.token);
-          await authResult.user!.sendEmailVerification();
-          await authResult.user!.linkWithCredential(githubAuthCredential);
-          return true;
-        }
+      final githubAuthCredential = GithubAuthProvider.credential(result.token!);
+      final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: '${result.token}@github.com',
+        password: '${result.token}',
+      );
+      if (authResult.user != null) {
+        await authResult.user!.updateDisplayName(result.token);
+        await authResult.user!.sendEmailVerification();
+        await authResult.user!.linkWithCredential(githubAuthCredential);
+        return true;
       }
 
       return false;

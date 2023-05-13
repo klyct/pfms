@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:profinmovtser/components/theme_helper.dart';
 import 'package:profinmovtser/firebase/email_auth.dart';
 import 'package:profinmovtser/screens/home/home_screen.dart';
-import 'package:social_login_buttons/social_login_buttons.dart';
 import '../../widgets/header_widget.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';

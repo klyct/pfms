@@ -2,10 +2,6 @@ import 'package:profinmovtser/models/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-import 'package:profinmovtser/screens/profile/components/custom_icons.dart';
-import 'package:profinmovtser/screens/profile/components/post_type_chips.dart';
-import 'package:profinmovtser/utils/assets.dart';
-import 'package:profinmovtser/utils/post_type.dart';
 
 import 'components/post_card.dart';
 import 'components/profile_card.dart';
@@ -32,10 +28,7 @@ class _ProfileViewState extends State<ProfileView> {
                 fontSize: 18,
                 color: Theme.of(context).colorScheme.onBackground)),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomIcons(src: CustomAssets.kChat),
-          )
+          //themeprovider
         ],
       ),
       body: AnimationLimiter(

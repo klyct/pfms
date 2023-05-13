@@ -52,6 +52,8 @@ dependencies:
   provider: ^6.0.5
   fluttertoast: ^8.2.1
   github_sign_in_plus: ^0.0.2
+  sqflite: ^2.2.8+2
+  cloud_firestore: ^4.7.0
 
 
 

@@ -1,11 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:profinmovtser/screens/login/LoginPageMobile.dart';
 import 'package:rive/rive.dart';
-
 import 'components/animated_btn.dart';
-import 'components/custom_sign_in_dialog.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

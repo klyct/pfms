@@ -30,26 +30,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final googlebtn = SocialLoginButton(
-      buttonType: SocialLoginButtonType.google,
-      onPressed: () async {
-        isLoading = true;
-        setState(() {});
-        await googleAuth.signInWithGoogle().then((value) {
-          if (value.name != null) {
-            isLoading = false;
-            Navigator.pushNamed(context, '/dash', arguments: value);
-          } else {
-            isLoading = false;
-            setState(() {});
-            SnackBar(
-              content: Text('Verifica tus credenciales'),
-            );
-          }
-        });
-      },
-    );
-
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(

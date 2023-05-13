@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:profinmovtser/utils/assets.dart';
 
 import 'account_action_chip.dart';
 import 'account_info_chips.dart';
@@ -10,6 +10,7 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -23,7 +24,7 @@ class ProfileCard extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Anabel May",
+                user!.displayName!,
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 18,
@@ -60,7 +61,7 @@ class ProfileCard extends StatelessWidget {
         ),
         CircleAvatar(
           radius: 50,
-          backgroundImage: AssetImage(CustomAssets.kUser1),
+          backgroundImage: NetworkImage(user.photoURL!),
         ),
       ],
     );

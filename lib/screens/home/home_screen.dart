@@ -1,14 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:get/get.dart';
+import 'package:profinmovtser/firebase/firebase_DB.dart';
 import 'package:profinmovtser/models/post_model.dart';
-import 'package:profinmovtser/models/story_model.dart';
-import 'package:profinmovtser/screens/home/components/my_story_upload_card.dart';
-import 'package:profinmovtser/screens/home/components/story_card.dart';
 import 'package:profinmovtser/screens/profile/components/post_card.dart';
-import 'package:profinmovtser/screens/profile/components/post_type_chips.dart';
 import 'package:profinmovtser/screens/profile/post_detail_page.dart';
-import 'package:profinmovtser/utils/post_type.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,9 +13,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  PostFirebase _Post = PostFirebase();
+
   int selectedPostType = 0;
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
@@ -28,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
           title: Text(
-            'Hi Lorena',
+            '"Hi, ${user!.displayName}"',
             style: TextStyle(
               color: Theme.of(context).colorScheme.onBackground,
               fontSize: 18,
@@ -63,33 +62,43 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: FadeInAnimation(child: widget),
               ),
               children: [
-                const SizedBox(height: 10),
-                //Story Card
-                SizedBox(
-                  height: 80,
-                  child: ListView.separated(
-                      itemCount: dummyStories.length + 1,
-                      padding: const EdgeInsets.only(left: 24),
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 10),
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        if (index == 0) {
-                          return const StoryUploadCard();
-                        }
-                        Story stories = dummyStories[index - 1];
-                        return StoryCard(
-                          story: stories,
-                        );
-                      }),
-                ),
-
                 const SizedBox(height: 20),
-                ListView.separated(
+                StreamBuilder(
+                  stream: _Post.getAllPost(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          return Text(
+                              snapshot.data!.docs[index].get('userName'));
+                        },
+                      );
+                    } else if (snapshot.hasError) {
+                      return const Center(
+                        child: Text('Error en la peticion, intente de nuevo'),
+                      );
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+        ));
+  }
+}
+/*ListView.separated(
                     shrinkWrap: true,
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     physics: const NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.docs.length,
                     itemBuilder: (context, index) {
                       return PostCard(
                         post: dummyPosts[index],
@@ -102,10 +111,4 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     separatorBuilder: (context, index) =>
                         const SizedBox(height: 10),
-                    itemCount: dummyPosts.length)
-              ],
-            ),
-          ),
-        ));
-  }
-}
+                    itemCount: dummyPosts.length) */

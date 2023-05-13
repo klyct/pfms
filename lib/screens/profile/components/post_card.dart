@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:profinmovtser/models/post_model.dart';
 import 'package:profinmovtser/utils/assets.dart';
 
@@ -28,7 +27,7 @@ class PostCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       image: DecorationImage(
-                          image: AssetImage(post.userImage),
+                          image: AssetImage(post.userImage!),
                           fit: BoxFit.cover)),
                 ),
                 const SizedBox(width: 10),
@@ -36,7 +35,7 @@ class PostCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      post.userName,
+                      post.userName!,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -58,13 +57,13 @@ class PostCard extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              post.description,
+              post.description!,
               style:
                   TextStyle(color: Theme.of(context).colorScheme.onBackground),
             ),
             const SizedBox(height: 5),
             Hero(
-              tag: post.id,
+              tag: post.id!,
               child: Container(
                 height: 140,
                 width: double.maxFinite,
@@ -72,7 +71,7 @@ class PostCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                        image: AssetImage(post.image), fit: BoxFit.cover)),
+                        image: AssetImage(post.image!), fit: BoxFit.cover)),
                 child: Container(
                   margin: const EdgeInsets.all(5),
                   padding: const EdgeInsets.all(5),

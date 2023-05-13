@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:profinmovtser/models/post_model.dart';
 import 'package:profinmovtser/utils/assets.dart';
 
+// ignore: must_be_immutable
 class PostDetailPage extends StatelessWidget {
   PostModel post;
   PostDetailPage({
@@ -32,14 +32,14 @@ class PostDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14),
         children: [
           Hero(
-            tag: post.id,
+            tag: post.id!,
             child: Container(
               height: 400,
               alignment: Alignment.topLeft,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: AssetImage(post.image), fit: BoxFit.cover)),
+                      image: AssetImage(post.image!), fit: BoxFit.cover)),
             ),
           ),
           const SizedBox(height: 10),
@@ -88,14 +88,14 @@ class PostDetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
-                        image: AssetImage(post.userImage), fit: BoxFit.cover)),
+                        image: AssetImage(post.userImage!), fit: BoxFit.cover)),
               ),
               const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    post.userName,
+                    post.userName!,
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -115,7 +115,7 @@ class PostDetailPage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            post.description,
+            post.description!,
             style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
           ),
           const SizedBox(height: 10),
@@ -200,7 +200,7 @@ class PostDetailPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        post.description,
+                        post.description!,
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.onBackground),
                       ),
